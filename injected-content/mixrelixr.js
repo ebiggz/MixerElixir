@@ -418,13 +418,13 @@ $(() => {
 
 		// Auto close interactive
 		if(options.autoCloseInteractive) {
-			let minimizeInteractiveBtn = $('.hide-interactive');
+			let minimizeInteractiveBtn = $('.toggle-interactive');
 			if(minimizeInteractiveBtn != null) {
 				let hideInteractiveTries = 0;
 
 				let hideInteractiveInterval = setInterval(function(){
+					if( $('.toggle-interactive .icon-check_box_outline_blank').length >= 0){
 					minimizeInteractiveBtn.click();
-					if( $('.hide-interactive .icon-check_box_outline_blank').length === 1){
 						log('Hid the interactive panel successfully.');
 						clearInterval(hideInteractiveInterval);
 					} else if (hideInteractiveTries < 10) {
@@ -573,7 +573,7 @@ $(() => {
 			
 		} else {
 
-			let minimizeInteractiveBtn = $('.hide-interactive');
+			let minimizeInteractiveBtn = $('.toggle-interactive');
 			if(minimizeInteractiveBtn != null) {
 				let isHideBtn = $('.icon-indeterminate_check_box');
 				if(isHideBtn != null && isHideBtn.length > 0) {
