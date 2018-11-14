@@ -416,14 +416,14 @@ $(() => {
 			break;
 		}
 
-		// Auto close interactive (Only works on solo streams again. Streams with 🚫 to exit multi mixplay won't work w/ current code?)
+		// Auto close interactive (Only works on solo streams again. Co-Streams with 🚫 to exit multi mixplay won't work w/ current code)
 		if(options.autoCloseInteractive) {
 			let minimizeInteractiveBtn = $('.toggle-interactive');
 			if(minimizeInteractiveBtn != null) {
 				let hideInteractiveTries = 0;
 
 				let hideInteractiveInterval = setInterval(function(){
-					if( $('.toggle-interactive .icon-check_box_outline_blank').length >= 0){ // Why does >= 0 work? Will this break other function? I don't think so.
+					if( $('.toggle-interactive .icon-check_box_outline_blank').length >= 0){ 
 					minimizeInteractiveBtn.click();
 						log('Hid the interactive panel successfully.');
 						clearInterval(hideInteractiveInterval);
