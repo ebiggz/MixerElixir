@@ -55,7 +55,6 @@ settingsStorage = {
 						autoForwardOnHost: false,
 						autoMute: false,
 						autoMuteOnHost: false,
-						autoTheater: false,
 						ignoredUsers: [],
 						keywords: [],
 						hideKeywords: [],
