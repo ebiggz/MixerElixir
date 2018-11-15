@@ -4,7 +4,7 @@ settingsStorage = {
 			var app = this;
 			return new Promise((resolve) => {
 				var defaults = this.getDefaultOptions();
-			
+
 				chrome.storage.sync.get({
 					'streamerPageOptions': defaults.streamerPageOptions,
 					'homePageOptions': defaults.homePageOptions,
@@ -19,7 +19,7 @@ settingsStorage = {
 			chrome.storage.sync.set(settings, () => {
 				if(emitEvent) {
 					app.emitSettingUpdatedEvent();
-				}				
+				}
 			});
 		},
 		saveStreamerPageOptions: function(options) {
@@ -46,6 +46,7 @@ settingsStorage = {
 						separateChat: false,
 						alternateChatBGColor: false,
 						mentionChatBGColor: false,
+						hideDeleted: false,
 						timestampAllMessages: false,
 						showImagesInline: false,
 						lowestUserRoleLinks: 'mod',
@@ -55,7 +56,9 @@ settingsStorage = {
 						autoMute: false,
 						autoMuteOnHost: false,
 						ignoredUsers: [],
-						keywords: []
+						keywords: [],
+						hideKeywords: [],
+						hideStyle: 'blur'
 					},
 					overrides: {}
 				},

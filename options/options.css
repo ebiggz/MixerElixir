@@ -245,6 +245,29 @@ input:checked + .slider:before {
     right:8px;
 }
 
+.friend-audience{
+    position: absolute;
+    bottom: 6px;
+    left: 4px;
+    background: #169D56;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 3px;
+}
+
+.friend-audience.eighteen {
+    background: #F75252;
+ }
+
+.friend-audience span{
+    font-size: 9px;
+    text-transform: capitalize;
+    /*text-shadow: 0px 0px 10px #000000;*/
+}
+
+
 .friendName{
     float:left;
 }

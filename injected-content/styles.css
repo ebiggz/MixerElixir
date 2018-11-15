@@ -52,14 +52,14 @@
 
 /** Inline Pictures **/
 .hide-picture-btn {
-    position:absolute; 
-    top:3px; 
-    right:3px; 
-    width: 15px; 
-    height: 15px; 
-    background: rgba(0, 0, 0, 0.356); 
+    position:absolute;
+    top:3px;
+    right:3px;
+    width: 15px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.356);
     border-radius: 10px;
-    cursor: pointer; 
+    cursor: pointer;
     color: whitesmoke;
     text-align: center;
     font-size: 12px;
@@ -77,7 +77,6 @@
 
 /*Theater Mode*/
 .channel-page > header,
-.back-to-browse,
 .profile-header,
 .profile-blocks,
 .user,
@@ -87,29 +86,61 @@ b-notifications {
     transition: 0.5s;
 }
 
-.channel-page > header.theaterMode,
-.back-to-browse.theaterMode,
-.user.theaterMode,
-b-notifications.theaterMode {
-    opacity: 0!important;
-    transition: 0.5s
-}
-
 .profile-header.theaterMode,
 .profile-blocks.theaterMode {
     display:none!important;
+    visibility: hidden !important;
 }
 
 .channel-page.theaterMode,
 .channel-page > aside.theaterMode {
-    background: #040a19!important;
+    background: #0b0f15!important;
+}
+
+.channel-page.theaterMode {
+    margin-top: 30px!important;
+    height: 100%!important;
+    max-height: 100%!important;
 }
 
 .channel-page > aside.theaterMode {
     padding-top: 0px!important;
 }
-/* End Theater Mode */
 
+body.theaterMode {
+    background: #0b0f15;
+}
+
+b-desktop-header.theaterMode {
+    opacity: 0!important;
+    display: none;
+    visibility: hidden;
+}
+
+b-channel-info-bar.theaterMode {
+    display: none;
+    visibility: hidden;
+}
+
+.stage.aspect-16-9.theaterMode {
+    max-height: 100% !important;
+}
+
+.chat.theaterMode {
+    background: #161D29!important;
+    top: 0px !important;
+}
+
+.chat.relative {
+    position: relative !important;
+}
+
+
+/**      Current Issues w/ new mixer theaterMode 
+        -- Chat box goes away when theater mode is off (Uncomment lines 135 to 141 to see this bug)
+        -- transition times don't work with the new ui removals i've added  **/
+
+/* End Theater Mode */
 
 /** Favorite Highlights **/
 /** Favorite Highlights & Favorites UI **/
@@ -145,3 +176,37 @@ b-notifications.theaterMode {
     border-color: rgb(90, 251, 142);
 }
 /** End Highlights CSS **/
+
+.deleted-blur > a,
+.deleted-blur > span,
+.deleted-blur > div,
+.hide-word-mentioned.hide-blur
+{
+    opacity: 0.6;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+}
+
+.deleted-blur:hover > a,
+.deleted-blur:hover > span,
+.deleted-blur:hover > div,
+.hide-word-mentioned.hide-blur:hover
+{
+    opacity: 0.8;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -ms-filter: blur(0);
+    -o-filter: blur(0);
+}
+
+.deleted-blur > b-channel-chat-author {
+    opacity: 0.6;
+}
+
+.hide-word-mentioned.hide-remove {
+    display: none;
+}

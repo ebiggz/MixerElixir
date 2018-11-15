@@ -37,7 +37,7 @@ friendFetcher = {
 			console.log('Trying page '+page+' of follows for userId '+userId);
 
 
-			var url = `https://mixer.com/api/v1/users/${userId}/follows?fields=id,online,name,token,viewersCurrent,partnered,costreamId,interactive,type&where=online:eq:true&order=viewersCurrent:desc&limit=${pageSize}&page=${page}`;
+			var url = `https://mixer.com/api/v1/users/${userId}/follows?fields=id,online,name,token,viewersCurrent,partnered,costreamId,interactive,type,audience&where=online:eq:true&order=viewersCurrent:desc&limit=${pageSize}&page=${page}`;
 			if(!onlyOnline) {
 				// when we get all followers, we only need the id and their name, cuts down on how much data we bring over the wire
 				url = `https://mixer.com/api/v1/users/${userId}/follows?fields=id,token&limit=${pageSize}&page=${page}`;

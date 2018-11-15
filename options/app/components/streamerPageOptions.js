@@ -20,14 +20,33 @@ Vue.component('streamer-page-options', {
 				<checkbox-toggle :value.sync="alternateChatBGColor" @changed="saveSettings()" label="Alternate Chat BG Color"></checkbox-toggle>
 				<checkbox-toggle :value.sync="timestampAllMessages" @changed="saveSettings()" label="Timestamp All Messages" tooltip="Please note that timestamps will only be added to new messages as there is no way for us to tell when previous messages were sent."></checkbox-toggle>
 				<checkbox-toggle :value.sync="mentionChatBGColor" @changed="saveSettings()" label="Highlight When Mentioned" tooltip="Apply a special background behind messages when you are mentioned."></checkbox-toggle>
+				<checkbox-toggle :value.sync="hideDeleted" @changed="saveSettings()" label="Mask Deleted Messages" tooltip="Hides deleted messages behind a blur. Hover over the deleted message to reveal it. Great way to hide spoilers or toxic messages."></checkbox-toggle>
+
 				<div class="option-wrapper">
 					<div style="padding-bottom: 5px;">Highlight Keywords<option-tooltip name="highlightKeywords" title="Any messages containing these keywords will have a special background."></option-tooltip></div>
 					<edittable-list class="option" :value.sync="keywords" :options="[]" tag-placeholder="Press enter to add keyword" placeholder="Type to add keyword" @changed="saveSettings()"></edittable-list>
 				</div>
+
+				<div class="option-wrapper" style="padding: 10px 0;">
+					<div style="padding-bottom: 5px;">Word Blacklist<option-tooltip name="hideKeywords" title="Any words in this list will be automatically hidden via the below style. Note: If you are a mod for the currently viewed channel, this feature is disabled."></option-tooltip>
+						<a @click="showWordBlacklist = !showWordBlacklist" style="cursor: pointer; color: #00A7FF; font-size: 12px; padding-left: 5px">
+							{{showWordBlacklist ? 'Hide Blacklist' : 'Show Blacklist'}}
+						</a>
+					</div>
+					<b-collapse class="mt-2" v-model="showWordBlacklist" id="wordBlacklistCollapse"> 
+						<edittable-list class="option" :value.sync="hideKeywords" :options="[]" tag-placeholder="Press enter to add keyword" placeholder="Type to add keyword" @changed="saveSettings()"></edittable-list>
+						<div style="padding-left: 10px">
+							<div style="padding-bottom: 3px">Hide Style <option-tooltip name="hideStyle" title="How the word will be hidden. Hovering over the hidden word will reveal it (except for Remove style)."></option-tooltip></div>
+							<b-form-select v-model="hideStyle" :options="hideStyles" class="mb-3 option"></b-form-select>
+						</div>
+					</b-collapse>
+				</div>
+
 				<div class="option-wrapper" style="margin-bottom: 20px;">
 					<div style="padding-bottom: 5px;">Ignored Users<option-tooltip name="ignoredUsers" title="You will not see messages from users listed here."></option-tooltip></div>
 					<edittable-list class="option" :value.sync="ignoredUsers" :options="viewers" tag-placeholder="Press enter to add user" placeholder="Select or type to add" @changed="saveSettings()"></edittable-list>
 				</div>
+
 				<inline-img-toggle :value.sync="showImagesInline" @changed="saveSettings()"></inline-img-toggle>
 				<div v-show="showImagesInline" class="option-wrapper suboption">
 					<div style="padding-bottom: 5px;">Permitted User Roles<option-tooltip name="permUserRoles" title="See images from anyone in the selected role (and higher), unless the user is blacklisted below."></option-tooltip></div>
@@ -175,6 +194,10 @@ Vue.component('streamer-page-options', {
 	watch: {
 		lowestUserRoleLinks: function(newRole) {
 			this.saveSettings();
+		},
+		hideStyle: function(newStyle) {
+			console.log('saving hide style');
+			this.saveSettings();
 		}
 	},
 	data: function() {
@@ -189,6 +212,12 @@ Vue.component('streamer-page-options', {
 				{ value: 'pro', text: 'Pro (& above)' },
 				{ value: 'all', text: 'All' }
 			],
+			hideStyles: [
+				{ value: 'blur', text: 'Blur' },
+				{ value: 'asterisk', text: 'Asterisk (*)' },
+				{ value: 'remove', text: 'Remove Whole Message' }
+			],
+			showWordBlacklist: false, 
 			overrideNames: [],
 			viewers: []
 		};
