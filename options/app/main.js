@@ -1,4 +1,5 @@
 Vue.component('multiselect', window.VueMultiselect.default);
+Vue.component('vueSlider', window['vue-slider-component']);
 
 //global bus we use for sending events across components. 
 bus = new Vue();

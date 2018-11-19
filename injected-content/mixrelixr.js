@@ -73,9 +73,11 @@ $(() => {
 			}
 
 			if(isName) {
+				cache.currentStreamerName = channelIdOrName;
 				applyChatSettings(channelIdOrName);
 			} else {
 				getChannelNameById(channelIdOrName).then((name) => {
+					cache.currentStreamerName = name;
 					applyChatSettings(name);
 				});
 			}
@@ -418,13 +420,35 @@ $(() => {
 
 		// Auto close interactive
 		if(options.autoCloseInteractive) {
-			let minimizeInteractiveBtn = $('.hide-interactive');
+			let minimizeInteractiveBtn = $('.toggle-interactive');
 			if(minimizeInteractiveBtn != null) {
 				let hideInteractiveTries = 0;
 
 				let hideInteractiveInterval = setInterval(function(){
+
+					// click the hide button
 					minimizeInteractiveBtn.click();
-					if( $('.hide-interactive .icon-check_box_outline_blank').length === 1){
+					
+					// get a fresh copy of the toggle button, this will reflect any changes in the DOM that 
+					// happenedafter we clicked it
+					let updatedBtn = $('.toggle-interactive');
+						
+					// this will be true if there is a costream and multiple streamers in the costream have
+					// interactive on 
+					if(detectCostreams() && updatedBtn.length === 0){
+						log('Pressed the toggle interactive button successfully.');
+						clearInterval(hideInteractiveInterval);
+
+						// wait half a sec
+						setTimeout(() => {
+							//click X close button
+							$('[icon="MixerBan"]').click();
+							log('Pressed the close interactive button.');
+						}, 100);
+
+					} 
+					// this will be true if theres no costreamer or only one streamer in costream has interactive on
+					else if(updatedBtn.length !== 0 && !updatedBtn.hasClass('open')){
 						log('Hid the interactive panel successfully.');
 						clearInterval(hideInteractiveInterval);
 					} else if (hideInteractiveTries < 10) {
@@ -435,7 +459,7 @@ $(() => {
 						log('Tried to hide interactive for 10 seconds and failed.');
 					}
 				}, 1000);
-			}
+			}		
 		}
 
 		// Auto Theater Mode (HEAVY WIP)
@@ -648,8 +672,13 @@ $(() => {
 
 		var options = getStreamerOptionsForStreamer(streamerName);
 
-		cache.userIsMod = await userIsModInCurrentChannel();
-		log(`User is mod: ${cache.userIsMod}`);
+		try {
+			cache.userIsMod = await userIsModInCurrentChannel();
+			log(`User is mod: ${cache.userIsMod}`);
+		} catch(err) {
+			log('Error getting user mod status');
+			console.log(err);
+		}
 
 		// Add in a line below each chat message.
 		if(options.separateChat) {
@@ -722,6 +751,16 @@ $(() => {
 		// We can use this to do any tweaks and modifications to chat as they come in
 		$.initialize('b-channel-chat-message', function() {
 			var messageContainer = $(this);
+
+			if(options.useCustomFontSize) {
+				messageContainer.css("font-size", `${options.textSize}px`);
+				messageContainer.children(".message").css("line-height", `${options.textSize + 9}px`);
+				messageContainer.find(".image").css("font-size", `15px`);
+			} else {
+				messageContainer.css("font-size", "");
+				messageContainer.children(".message").css("line-height", "");
+				messageContainer.find(".image").css("font-size", "");
+			}
 
 			var alreadyChecked = messageContainer.attr('elixrfied');
 			// check to see if we have already looked at this chat messsage.
@@ -828,10 +867,10 @@ $(() => {
 				var parent = messageContainer.parent();
 
 				//verify there isnt a native timestamp sometime after this message (if so, this is an older message)
-				var stampsAfterCurrentMsg = parent.nextAll('.timestamp').length > 0;
+				var stampsAfterCurrentMsg = parent.nextAll('div:not(.chat-message)').length > 0;
 
 				//check that the current message doesnt already have a native or custom timestamp
-				var msgAlreadyHasStamp = parent.prev().hasClass('timestamp') || parent.find('.elixrTime').length > 0;
+				var msgAlreadyHasStamp = parent.prev().find(".timestamp").length > 0 || parent.find('.elixrTime').length > 0;
 
 				// should we add a timestamp?
 				if(!stampsAfterCurrentMsg && !msgAlreadyHasStamp) {

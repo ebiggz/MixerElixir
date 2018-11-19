@@ -16,7 +16,7 @@
     line-height:1;
     display:block;
     margin: 1px 5px 0 13px;
-    opacity: 0.25;
+    opacity: 0.6;
     font-size:11px;
 }
 
@@ -99,12 +99,15 @@ b-notifications {
 
 .channel-page.theaterMode {
     margin-top: 30px!important;
-    height: 100%!important;
     max-height: 100%!important;
 }
 
 .channel-page > aside.theaterMode {
     padding-top: 0px!important;
+}
+
+.channel-page.theaterMode > section {
+    height: 100%;
 }
 
 body.theaterMode {
