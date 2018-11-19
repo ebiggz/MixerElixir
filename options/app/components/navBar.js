@@ -41,6 +41,7 @@ Vue.component('nav-bar', {
 			this.onlineActive = tab === 'online';
 			this.optionsActive = tab === 'options';
 			this.$emit('tab-changed', tab);
+			bus.$emit('tab-changed', tab);
 		},
 		serviceStatus: function(){
 			return new Promise(function(resolve, reject) {

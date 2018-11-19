@@ -21,7 +21,13 @@ Vue.component('streamer-page-options', {
 				<checkbox-toggle :value.sync="timestampAllMessages" @changed="saveSettings()" label="Timestamp All Messages" tooltip="Please note that timestamps will only be added to new messages as there is no way for us to tell when previous messages were sent."></checkbox-toggle>
 				<checkbox-toggle :value.sync="mentionChatBGColor" @changed="saveSettings()" label="Highlight When Mentioned" tooltip="Apply a special background behind messages when you are mentioned."></checkbox-toggle>
 				<checkbox-toggle :value.sync="hideDeleted" @changed="saveSettings()" label="Mask Deleted Messages" tooltip="Hides deleted messages behind a blur. Hover over the deleted message to reveal it. Great way to hide spoilers or toxic messages."></checkbox-toggle>
-
+				<checkbox-toggle :value.sync="useCustomFontSize" @changed="saveSettings()" label="Use Custom Text Size" tooltip="Allows you to define a custom font size and line height."></checkbox-toggle>
+				<b-collapse v-model="useCustomFontSize" id="useCustomFontSize">
+					<div style="padding: 0px 0 15px 20px;">
+						<div>Text Size<option-tooltip name="textSize" title="The size of the text."></option-tooltip></div>
+						<vue-slider ref="textSizeSlider" v-model="textSize" v-bind="textSizeSliderOptions"></vue-slider>
+					</div> 		
+				</b-collapse>
 				<div class="option-wrapper">
 					<div style="padding-bottom: 5px;">Highlight Keywords<option-tooltip name="highlightKeywords" title="Any messages containing these keywords will have a special background."></option-tooltip></div>
 					<edittable-list class="option" :value.sync="keywords" :options="[]" tag-placeholder="Press enter to add keyword" placeholder="Type to add keyword" @changed="saveSettings()"></edittable-list>
@@ -196,7 +202,21 @@ Vue.component('streamer-page-options', {
 			this.saveSettings();
 		},
 		hideStyle: function(newStyle) {
-			console.log('saving hide style');
+			this.saveSettings();
+		},
+		useCustomFontSize: function(val) {
+			if (val) {
+				this.$nextTick(() => { 
+					this.$refs.textSizeSlider.refresh();
+				});
+			} else {
+				//reset values to default
+				this.textSize = 15;
+				this.lineHeight = 24;
+				this.saveSettings();
+			}
+		},
+		textSize: function() {
 			this.saveSettings();
 		}
 	},
@@ -217,7 +237,17 @@ Vue.component('streamer-page-options', {
 				{ value: 'asterisk', text: 'Asterisk (*)' },
 				{ value: 'remove', text: 'Remove Whole Message' }
 			],
-			showWordBlacklist: false, 
+			showWordBlacklist: false,
+			sliderTest: 30,
+			textSizeSliderOptions: {
+				min: 10,
+				max: 60,
+				tooltip: false,
+				lazy: true,
+				processStyle: {
+					backgroundColor: "#1FBAED"
+				}
+			},
 			overrideNames: [],
 			viewers: []
 		};
@@ -244,5 +274,13 @@ Vue.component('streamer-page-options', {
 		});
 
 		this.getViewersForCurrentChannel();
+
+		bus.$on("tab-changed", (tab) => {
+			if(tab === "options") {
+				this.$nextTick(() => {
+					this.$refs.textSizeSlider.refresh();
+				});			
+			}		
+		});
 	}
 });
