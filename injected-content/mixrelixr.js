@@ -461,15 +461,15 @@ $(() => {
 				}, 1000);
 			}		
 		}
-
-		// Auto Theater Mode (HEAVY WIP)
+		
+/*		// Auto Theater Mode (HEAVY WIP -- WORKING BUTTON CLICK, but applying it on reload is not working :(  )
 		if(options.autoTheater) {
-			let autoTheaterBtn = $('#settitton');
+			let autoTheaterBtn = $('#fullscreen-button').click()
 			if(autoTheaterBtn != null) {
 				let autoTheaterTries = 0;
 
  				let autoTheaterInterval = setInterval(function(){
-					if( $('#settings-button-button').length === 1){ 
+					if( $('#fullscreen-button') === $('#fullscreen-button')){ 
 						autoTheaterBtn.click();
 						log('Enabled auto theater mode successfully.');
 						clearInterval(autoTheaterInterval);
@@ -483,6 +483,38 @@ $(() => {
 				}, 1000);
 			}
 		}
+*/ 
+		// Auto Theater Mode2 (HEAVY WIP -- WORKING BUTTON CLICK, but applying it on reload is not working :(  )
+		if(options.autoTheater) {
+			let autoTheaterBtn = $('#fullscreen-button').click()
+			if(autoTheaterBtn != null) { 
+				let autoTheaterTries = 0;
+
+				//Just click the theater button so i can go to sleep
+				autoTheaterBtn.click();
+
+
+				let autoTheaterInterval = setInterval(function(){
+
+					// If no costream, apply theater mode
+					if(detectCostreams() && $('#fullscreen-button') != null){
+
+					}
+
+					}
+
+
+
+
+
+					// If costream exists --> no theater mode
+
+
+
+
+			}
+
+
 
 		// Host Loop
 		// This checks every second to see if the channel hosted someone.
