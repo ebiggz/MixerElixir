@@ -43,6 +43,7 @@ settingsStorage = {
 					global: {
 						autoCloseInteractive: false,
 						autoCloseCostreams: false,
+						autoTheater: false,
 						separateChat: false,
 						alternateChatBGColor: false,
 						mentionChatBGColor: false,

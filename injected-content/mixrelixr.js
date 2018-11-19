@@ -438,6 +438,28 @@ $(() => {
 			}
 		}
 
+		// Auto Theater Mode (HEAVY WIP)
+		if(options.autoTheater) {
+			let autoTheaterBtn = $('#settitton');
+			if(autoTheaterBtn != null) {
+				let autoTheaterTries = 0;
+
+ 				let autoTheaterInterval = setInterval(function(){
+					if( $('#settings-button-button').length === 1){ 
+						autoTheaterBtn.click();
+						log('Enabled auto theater mode successfully.');
+						clearInterval(autoTheaterInterval);
+					} else if (autoTheaterTries < 10) {
+						autoTheaterTries++;
+						log('Cant find theater mode button. Trying again.');
+					} else {
+						clearInterval(autoTheaterInterval);
+						log('Tried to auto theater mode for 10 seconds and failed.');
+					}
+				}, 1000);
+			}
+		}
+
 		// Host Loop
 		// This checks every second to see if the channel hosted someone.
 		if(options.autoForwardOnHost || options.autoMuteOnHost){
