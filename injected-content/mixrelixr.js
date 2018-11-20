@@ -499,9 +499,9 @@ $(() => {
 				} 
 
 				// This code should execute only when there is no costream
-				else if((autoTheaterBtn) != null){
+				else if((autoTheaterBtn).length <= 0){
 					var costreamPage = detectCostreams();
-					if(costreamPage === false) {
+					if(costreamPage === (false)) {
 						log(' No Costream detected, Auto Enabling Theater Mode.');// on an infinite loop AHHHH HELP
 						//autoTheaterBtn.click(); --> this somehow uses the ACTUAL fullscreen button, so i cant use this for some reason.
 						$('#fullscreen-button').click(); // This actually uses the theatermode button
@@ -513,7 +513,7 @@ $(() => {
 					clearInterval(autoTheaterInterval);
 					log('Tried to Auto Theater for 10 seconds and failed.');
 				}
-			}, 1000);
+			}, 1300); // if this loads too fast, it actually presses the fullscreen button instead of the theater mode button :c 
 		}
 	} 
 
