@@ -486,33 +486,36 @@ $(() => {
 */ 
 		// Auto Theater Mode2 (HEAVY WIP -- WORKING BUTTON CLICK, but applying it on reload is not working :(  )
 		if(options.autoTheater) {
-			let autoTheaterBtn = $('#fullscreen-button').click()
+			let autoTheaterBtn = $('#fullscreen-button').click();
 			if(autoTheaterBtn != null) { 
 				let autoTheaterTries = 0;
 
-				//Just click the theater button so i can go to sleep
-				autoTheaterBtn.click();
+			let autoTheaterInterval = setInterval(function(){
 
+				// If costream exists & the button exists --> no theater mode
+				if(detectCostreams() && (autoTheaterBtn) != null){
+					log('Auto Theater Mode disabled until costream turns off.')
+					clearInterval(autoTheaterInterval);
+				} 
 
-				let autoTheaterInterval = setInterval(function(){
-
-					// If no costream, apply theater mode
-					if(detectCostreams() && $('#fullscreen-button') != null){
-
+				// This code should execute only when there is no costream
+				else if((autoTheaterBtn) != null){
+					var costreamPage = detectCostreams();
+					if(costreamPage === false) {
+						log(' No Costream detected, Auto Enabling Theater Mode.');// on an infinite loop AHHHH HELP
+						//autoTheaterBtn.click(); --> this somehow uses the ACTUAL fullscreen button, so i cant use this for some reason.
+						$('#fullscreen-button').click(); // This actually uses the theatermode button
 					}
-
-					}
-
-
-
-
-
-					// If costream exists --> no theater mode
-
-
-
-
-			}
+				} else if (autoTheaterTries < 10){
+					autoTheaterTries++;
+					log('Cant find Auto Theater button. Trying Again.');
+				} else{
+					clearInterval(autoTheaterInterval);
+					log('Tried to Auto Theater for 10 seconds and failed.');
+				}
+			}, 1000);
+		}
+	} 
 
 
 
