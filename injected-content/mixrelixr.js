@@ -461,30 +461,8 @@ $(() => {
 				}, 1000);
 			}		
 		}
-		
-/*		// Auto Theater Mode (HEAVY WIP -- WORKING BUTTON CLICK, but applying it on reload is not working :(  )
-		if(options.autoTheater) {
-			let autoTheaterBtn = $('#fullscreen-button').click()
-			if(autoTheaterBtn != null) {
-				let autoTheaterTries = 0;
 
- 				let autoTheaterInterval = setInterval(function(){
-					if( $('#fullscreen-button') === $('#fullscreen-button')){ 
-						autoTheaterBtn.click();
-						log('Enabled auto theater mode successfully.');
-						clearInterval(autoTheaterInterval);
-					} else if (autoTheaterTries < 10) {
-						autoTheaterTries++;
-						log('Cant find theater mode button. Trying again.');
-					} else {
-						clearInterval(autoTheaterInterval);
-						log('Tried to auto theater mode for 10 seconds and failed.');
-					}
-				}, 1000);
-			}
-		}
-*/ 
-		// Auto Theater Mode2 (HEAVY WIP -- WORKING BUTTON CLICK, but applying it on reload is not working :(  )
+		// Auto Theater Mode2 (HEAVY WIP -- WORKING BUTTON CLICK, Infinite bug loop of theater button being pressed)
 		if(options.autoTheater) {
 			let autoTheaterBtn = $('#fullscreen-button').click();
 			if(autoTheaterBtn != null) { 
@@ -492,21 +470,19 @@ $(() => {
 
 			let autoTheaterInterval = setInterval(function(){
 
-				// If costream exists & the button exists --> no theater mode
-				if(detectCostreams() && (autoTheaterBtn) != null){
+				// If costream exists & the button exists --> no theater mode (WORKS)
+				if(detectCostreams()){ 
 					log('Auto Theater Mode disabled until costream turns off.')
 					clearInterval(autoTheaterInterval);
 				} 
 
-				// This code should execute only when there is no costream
-				else if((autoTheaterBtn).length <= 0){
-					var costreamPage = detectCostreams();
-					if(costreamPage === (false)) {
-						log(' No Costream detected, Auto Enabling Theater Mode.');// on an infinite loop AHHHH HELP
-						//autoTheaterBtn.click(); --> this somehow uses the ACTUAL fullscreen button, so i cant use this for some reason.
+				// This code should execute only when there is no costream (Infinite loop bug )
+				var costreamPage = detectCostreams();
+				if(costreamPage === (false)) {
+						log(' No Costream detected, Auto Enabling Theater Mode.');
 						$('#fullscreen-button').click(); // This actually uses the theatermode button
 					}
-				} else if (autoTheaterTries < 10){
+				else if (autoTheaterTries < 10){
 					autoTheaterTries++;
 					log('Cant find Auto Theater button. Trying Again.');
 				} else{
