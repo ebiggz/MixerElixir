@@ -462,37 +462,25 @@ $(() => {
 			}		
 		}
 
-		// Auto Theater Mode2 (HEAVY WIP -- WORKING BUTTON CLICK, Infinite bug loop of theater button being pressed)
+		// Auto Theater Mode -- Activated in Modal settings menu
 		if(options.autoTheater) {
-			let autoTheaterBtn = $('#fullscreen-button').click();
-			if(autoTheaterBtn != null) { 
-				let autoTheaterTries = 0;
-
-			let autoTheaterInterval = setInterval(function(){
-
-				// If costream exists & the button exists --> no theater mode (WORKS)
-				if(detectCostreams()){ 
-					log('Auto Theater Mode disabled until costream turns off.')
-					clearInterval(autoTheaterInterval);
-				} 
-
-				// This code should execute only when there is no costream (Infinite loop bug )
-				var costreamPage = detectCostreams();
-				if(costreamPage === (false)) {
-						log(' No Costream detected, Auto Enabling Theater Mode.');
-						$('#fullscreen-button').click(); // This actually uses the theatermode button
-					}
-				else if (autoTheaterTries < 10){
-					autoTheaterTries++;
-					log('Cant find Auto Theater button. Trying Again.');
-				} else{
-					clearInterval(autoTheaterInterval);
-					log('Tried to Auto Theater for 10 seconds and failed.');
+			// If costream exists --> no auto theater mode.
+			if(detectCostreams()){ 
+				log('Auto Theater Mode disabled until costream turns off.');
+			}
+			// This code executes when there is no costream.
+			var costreamPage = detectCostreams();
+			if(costreamPage === (false)) {
+					log(' No Costream detected, Auto Enabling Theater Mode.');
+					toggleTheaterMode();
 				}
-			}, 1300); // if this loads too fast, it actually presses the fullscreen button instead of the theater mode button :c 
-		}
-	} 
-
+			else {
+				log('Couldnt toggle autotheater mode.');
+			}
+		} /* ISSUES PRESENT:
+			1) When auto theater mode is on, opening the MixrElixr settings toggles theater mode off again. I have no idea why yet.
+			*/
+		
 
 
 		// Host Loop
