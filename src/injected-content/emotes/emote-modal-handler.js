@@ -57,7 +57,7 @@ export function handleEmoteModal(options, cache) {
                                 <img src="${browser.runtime.getURL('resources/images/elixr-light-128.png')}">
                             </div>
                         </div>
-                    `).insertBefore(emotesContainer);
+                    `).insertAfter(emotesContainer);
 
                         $('.me-emote-tab').off('click');
                         $('.me-emote-tab').on('click', function() {

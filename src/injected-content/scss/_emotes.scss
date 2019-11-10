@@ -67,7 +67,7 @@
     width: 100%;
     display: flex;
     background: #222d3c;
-    border-bottom: 1px solid #3E4A5B;
+    border-top: 1px solid rgb(62, 74, 91);
     .me-emote-tab {
         padding: 10px 0;
         width: 50%;
@@ -93,4 +93,5 @@
 .me-emotes-wrapper {
     overflow-y: auto;
     padding: 16px;
+    height: 100%;
 }
