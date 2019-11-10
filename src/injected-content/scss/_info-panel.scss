@@ -1,0 +1,25 @@
+#me-info-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: auto 10px auto 5px;
+    font-size: 14px;
+    font-family: Industrywf, "Segoe UI", sans-serif !important;
+    #me-username {
+        text-align: right;
+        margin-bottom: 7px;
+    }
+    #me-user-level, #me-user-sparks {
+        opacity: 0.7;
+    }
+    #me-user-level {
+        margin-right: 10px;
+    }
+    #me-user-sparks {
+        margin-left: 2px;
+    }
+    .me-info-data {
+        display: flex;
+        align-items: center;
+    }
+}

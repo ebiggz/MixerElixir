@@ -1,30 +1,44 @@
+// https://eslint.org/docs/user-guide/configuring
+// File taken from https://github.com/vuejs-templates/webpack/blob/1.3.1/template/.eslintrc.js, thanks.
+
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
+    root: true,
+    parserOptions: {
+        parser: 'babel-eslint'
     },
-    "extends": "eslint:recommended",
-    "rules": {
-        "no-console": 0, // Enable the use of console
-        "indent": [1, "tab"],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "space-before-function-paren": [
-            "error",
-            "never"
-        ],
-        "no-undef": "warn",
-        "no-unused-vars": "warn"
+    env: {
+        browser: true,
+        webextensions: true
     },
-    "globals": {
-        "$": false,
-        "chrome": false,
-        "Vue": false
+    globals: {
+        $: true,
+        bus: true,
+        settingsStorage: true,
+        friendFetcher: true,
+        scriptCommunication: true
+    },
+    extends: [
+        // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+        // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+        'plugin:vue/essential',
+        // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+        'standard',
+        // https://prettier.io/docs/en/index.html
+        'plugin:prettier/recommended',
+        'prettier'
+    ],
+    // required to lint *.vue files
+    plugins: ['vue', 'prettier'],
+    // add your custom rules here
+    rules: {
+        // allow async-await
+        'generator-star-spacing': 'off',
+        // allow debugger during development
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'allow-empty-reject': true,
+        allowEmptyReject: true,
+        "prettier/prettier": "error",
+        "prefer-promise-reject-errors": "warn",
+        "no-var": "error"
     }
 };

@@ -1,0 +1,420 @@
+/* Timestamps */
+.chat-message {
+    position: relative;
+}
+
+.timestamp{
+    height:18px!important;
+}
+
+.elixrTime {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.elixrTime span {
+    line-height:1;
+    display:block;
+    margin: 1px 5px 0 13px;
+    opacity: 0.6;
+    font-size:11px;
+}
+ 
+.elixr-custom-emote {
+    vertical-align: bottom;
+    margin-left: 2px;
+}
+
+.elixr-custom-emote img {
+    vertical-align: bottom;
+}
+
+.elixr-custom-emote.fifty img {
+    max-width:50px;
+    max-height:50px;
+}
+
+.elixr-custom-emote.thirty img {
+    max-width:30px;
+    max-height:30px;
+}
+
+.elixr-custom-emote.twentyfour img {
+    max-width:24px;
+    max-height:24px;
+}
+
+.elixrEmoteGroupHeader {
+    margin: 12px 0 5px 0;
+    font-size: .9em;
+    color: #8f94ae;
+    font-weight: bold;             
+}
+
+.me-emote-preview {
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 5px; 
+}
+
+/** Separated Chat Lines **/
+.separated-chat b-channel-chat-message{
+    border-top: 2px solid #2a354c;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.separated-chat .timestamp::before{
+    border:none!important;
+}
+
+/** Alternate Chat BG Color **/
+.chat-alternate-bg .alternate-bg{
+    background-color:rgba(255, 255, 255, 0.05);
+}
+.chat-alternate-bg .timestamp{
+    float:right;
+    align-items: stretch!important;
+    flex-direction: row!important;
+    height: 0px!important;
+    margin:0px!important;
+}
+
+/** Mention Chat BG Color **/
+.chat-mention-bg .user-mentioned, .chat-keyword-bg .keyword-mentioned {
+    background-color: #20293f;
+    background-image:linear-gradient(45deg, rgba(0, 117, 213, 0.25) 40px, rgba(12, 91, 178, 0.25) 40px, rgba(12, 91, 178, 0.25) 80px, rgba(24, 62, 141, 0.25) 80px, rgba(24, 62, 141, 0.25) 120px, rgba(12, 47, 111, 0.25) 120px, rgba(12, 47, 111, 0.25) 160px, rgba(0, 32, 80, 0.25) 160px), linear-gradient(-45deg, rgba(0, 117, 213, 0.25) 40px, rgba(12, 91, 178, 0.25) 40px, rgba(12, 91, 178, 0.25) 80px, rgba(24, 62, 141, 0.25) 80px, rgba(24, 62, 141, 0.25) 120px, rgba(12, 47, 111, 0.25) 120px, rgba(12, 47, 111, 0.25) 160px, rgba(0, 32, 80, 0.25) 160px) !important;
+}
+
+
+/** Inline Pictures **/
+.hide-picture-btn {
+    position:absolute;
+    top:3px;
+    right:3px;
+    width: 15px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.356);
+    border-radius: 10px;
+    cursor: pointer;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 12px;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3.5px;
+    padding-right: 0.5px;
+}
+
+.hide-picture-btn:hover {
+    opacity: 0.6;
+}
+
+/* Dropdown */
+.me-dropbtn {
+    background-color: transparent;
+    color: #9fa4ae;
+    height: 60px;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .me-dropbtn:hover,
+  .me-dropdown:hover > .me-dropbtn {
+    background-color: #43526D;
+    color: white;
+  }
+  
+  .me-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .me-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #43526D;
+    min-width: 160px;
+    overflow: auto;
+    z-index: 1;
+  }
+  
+  .me-dropdown-content a {
+    color: #9fa4ae;
+    padding: 12px 16px;
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: "Industrywf",sans-serif !important;
+  }
+  
+  .me-dropdown a:hover {color:white;}
+
+  .me-dropdown-show {display: block;}
+
+  /* end dropdown */
+
+/** Favorite Highlights **/
+/** Favorite Highlights & Favorites UI **/
+.card.favoriteFriend a::before {
+    border: 2px solid green;
+}
+
+.favoriteUsername {
+    color: lime !important;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.ME_favorite-btn {
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 30px;
+    height: 36px;
+    color: #409bff;
+    border-radius: 4px;
+    margin-right: 10px;
+    background: #364163;
+}
+
+.ME_favorite-btn span {
+    transform: translateY(-1px);
+}
+
+.ME_favorite-btn.faved {
+    /*color: rgb(4,117,213);*/
+}
+
+.ME_favorite-btn:hover,
+.ME_favorite-btn.faved:hover {
+    background: #2e3958;
+}
+/** End Highlights CSS **/
+
+.deleted-blur > a,
+.deleted-blur > span,
+.deleted-blur > div,
+.hide-word-mentioned.hide-blur
+{
+    opacity: 0.6;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+}
+
+.deleted-blur:hover > a,
+.deleted-blur:hover > span,
+.deleted-blur:hover > div,
+.hide-word-mentioned.hide-blur:hover
+{
+    opacity: 0.8;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -ms-filter: blur(0);
+    -o-filter: blur(0);
+}
+
+.deleted-blur > b-channel-chat-author {
+    opacity: 0.6;
+}
+
+.hide-word-mentioned.hide-remove {
+    display: none;
+}
+
+b-desktop-header.searchPinned {
+    z-index: 9 !important;
+}
+
+b-desktop-header.searchPinned.collapsed {
+    height: 60px;
+}
+
+.searchPinned::after  {
+    transition: opacity 50ms cubic-bezier(0.35, 0, 0.25, 1);
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.5), transparent);
+    opacity: 0;
+    height: 60px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.searchPinned.collapsed::after  {
+    opacity: 1;
+}
+
+b-browse-channels-header > div > .me-pinned-search,
+b-browse-channels-header > div > .input.me-pinned-search,
+b-browse-channels-header > div > .control-filter.me-pinned-search {
+    position: fixed;
+    z-index: 10;     
+    transition: top 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+b-browse-channels-header > div > .me-pinned-search.me-searchbar {
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index:50;
+}
+
+b-browse-channels-header > div > .me-pinned-search.me-filterbtn {
+    top: 31px;
+    left: 50%;
+    transform: translateX(calc(-50% + 215px));
+    z-index:50;
+}
+
+b-browse-filters.me-filterspanel {
+    position: fixed;
+    top: 79px;
+    z-index: 100;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+b-browse-framework > header.searchPinned {
+    position: static;
+    background: transparent !important;
+}
+
+.me-searchbar {
+    &:not(.me-nav-collapsed) > input {
+        border: 2px #1a2d57 solid !important;
+    }
+}
+
+.elixr-badge-wrapper {
+    position: absolute;
+    width: 100%;
+    top: -8px;
+    left: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elixr-badge {
+    width: 15px;
+    height: 15px;
+    border-radius: 30px;
+    background: #29374A;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.jquery-modal.blocker {
+    z-index: 99999999;
+}
+
+.mixr-modal {
+    background: #29374A;
+}
+
+.changelog-header {
+    margin-top: 30px;
+    margin-bottom: 13px;
+    font-family: "Industrywf",sans-serif;
+    text-transform: uppercase;
+    color: #d2d2d2;
+    font-size: 19px;
+}
+
+.changelog-feature {
+    font-weight: bold;
+    font-size: 1.25em;
+    font-family: "Industrywf",sans-serif;
+}
+
+.changelog-feature-description {
+    margin-bottom: 18px;
+    opacity: 0.8;
+}
+
+.me-simplified-topbar {
+    margin-right: 0 !important;
+}
+
+.me-simplified-topbar > b-language-selector > button > span {
+    display: none;
+}
+
+.me-simplified-topbar > b-language-selector > button > bui-icon:not(.icon-web) {
+    display: none;
+}
+
+
+.me-simplified-topbar .icon-InternetWithController {
+    line-height: 1.2;
+}
+
+b-notifications.me-simplified-topbar {
+    margin: 0 3px 0 5px !important;
+}
+
+.me-simplified-topbar .flyout-menu {
+    background: #364558;
+    border-radius: 20px;
+    margin-right: 0 !important;
+}
+
+b-embers-button.me-simplified-topbar > div > div {
+    margin-left: 0 !important;
+    border: none !important;
+    padding: none !important;
+}
+
+b-embers-button.me-simplified-topbar > div > div:hover {
+    margin-left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    opacity: 0.7;
+}
+
+b-embers-button.me-simplified-topbar > div > div > div {
+    display: none;
+}
+
+.logo.me-simplified-topbar {
+    margin: 0 0 0px 20px !important;
+    min-width: 0 !important;
+}
+
+.logo.me-simplified-topbar > .full {
+    display: none !important;
+}
+
+.logo.me-simplified-topbar > .merge {
+    display: block !important;
+}
+
+#me-quick-host-button {
+    font-size: 13px;
+    color: #09afff;
+    margin-left: 10px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
+}

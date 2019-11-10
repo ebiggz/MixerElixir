@@ -1,0 +1,16 @@
+// overrides for various mixer styles
+
+// fix channel card icon z-index
+.thumbnail .icon,
+.thumbnail .viewers,
+.thumbnail b-live-indicator-host,
+.thumbnail .liveAndViewers,
+.thumbnail .interactive,
+.thumbnail .costream {
+    z-index: 8 !important;
+}
+
+
+b-nav-host a {
+    font-family: "Industrywf",sans-serif !important;
+}

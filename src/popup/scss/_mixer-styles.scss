@@ -1,0 +1,413 @@
+.option-title {
+    display:inline-flex;
+    font-size: 18px;
+    color: rgba(228,238,242,.6);
+    font-family: 'Aero Matics', 'Segoe UI', sans-serif;
+}
+
+/* mixer select box */
+
+.multiselect__tags {
+    border-radius: 0;
+    border: 2px solid #424754;
+    background: #212C3D;
+}
+
+.multiselect__input, .multiselect__single {
+    background: #212C3D;
+    color: white;
+}
+
+.multiselect--above .multiselect__content-wrapper {
+    border-top: 1px solid #424754;
+}
+
+.multiselect__content-wrapper {
+    border: 1px solid #424754;
+    background: #29374A;
+    color: white;
+}
+
+.custom-select {
+    border: 2px solid #424754;
+    color: white;
+    border-radius: 0;
+    background: #212C3D url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='gray' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 5px center;
+    background-size: 8px 10px;
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    color: white;
+    background: #212C3D url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='gray' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 5px center;
+    background-size: 8px 10px;
+    outline: 0;
+}
+
+/* end mixer select box */
+
+
+/* mixer checkbox */
+.control {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Industrywf,sans-serif;
+    font-size: 16px;
+    color: rgba(228,238,242,.6);
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 0;
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+.toggle {
+    margin: 2px 0;
+    display: inline-flex;
+}
+
+.control input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.control .chrome {
+    position: relative;
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.toggler, .toggler:before, .toggler>div {
+    transition: transform .3s cubic-bezier(.25,.8,.25,1),border-color .3s cubic-bezier(.25,.8,.25,1),background-color .3s cubic-bezier(.25,.8,.25,1),opacity .3s cubic-bezier(.25,.8,.25,1);
+    content: "";
+}
+
+.toggler {
+    border-radius: 16px;
+    width: 48px;
+    height: 32px;
+    border: 1px solid #415775;
+    background: #415775;
+    box-sizing: border-box;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.toggler:before, .toggler>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.toggler:before {
+    border-radius: 16px;
+    width: 30px;
+    height: 30px;
+    background-color: #29374a;
+}
+
+.toggler>div {
+    width: 32px;
+    height: 32px;
+}
+
+.toggler>div:before {
+    transform: rotate(-45deg);
+}
+
+.toggler>div:after, .toggler>div:before {
+    transition: transform .3s cubic-bezier(.25,.8,.25,1),background-color .3s cubic-bezier(.25,.8,.25,1);
+    position: absolute;
+    content: "";
+    background: #415775;
+    height: 2px;
+    width: 15.08495px;
+    top: 15px;
+    left: 8.45753px;
+}
+
+.toggle.checked .toggler {
+    box-shadow: 0 0 10px 0 rgba(0,188,242,.4);
+    opacity: 1;
+    background-color: #00bcf2;
+    border-color: #00bcf2;
+}
+
+.toggle.checked .toggler:before {
+    transform: translateX(16px);
+    background-color: #29374a;
+}
+
+.toggle.checked .toggler>div {
+    transform: translateX(16px);
+}
+
+.toggle.checked .toggler>div:before {
+    background: #00bcf2;
+    transform: rotate(-45deg) translate(1.6px,1.6px);
+}
+
+.toggler>div:after {
+    transform: rotate(45deg);
+}
+
+.toggle.checked .toggler>div:after {
+    background: #00bcf2;
+    transform: rotate(45deg) scaleX(.5) translate(-3.2px,4.8px);
+}
+
+/* end of mixer checkbox */
+
+
+input.me-search {
+    background: #131d2c;
+    border-radius: 2px;
+    outline: 0 !important;
+    padding: 0.7em;
+    font-size: 0.9em;
+    color: #fff;
+    border: 2px solid transparent;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+input.me-search:focus {
+    border: 2px solid #00bcf2;
+}
+
+.mixer-icon {
+    transform: translateY(-1px);
+    opacity: 0.7;
+}
+
+.mixer-icon:hover {
+    opacity: 1;
+}
+
+
+.channels-row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.me-card {
+    flex-grow: 0;
+    width: 0;
+    flex-basis: 50%
+}
+
+.me-card > a {
+    position: relative;
+    border-radius: 6px;
+    background: #29374a;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
+    display: block;
+    overflow: hidden;
+    margin: 7px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.me-card > a:hover, .me-card > a:focus {
+    background: #43526d;
+    outline: 0;
+}
+
+.me-card > a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    /*z-index: 1;*/
+    border-radius: 6px;
+}
+
+
+.sr-only {
+    position: absolute;
+    opacity: 0.0001;
+}
+
+.thumbnail {
+    background: #000;
+    background-image: url("https://mixer.com/_latest/assets/images/browse/thumbnail.jpg");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.thumbnail::before {
+    display: block;
+    content: '';
+    /*padding-top: 56.25%;*/
+}
+
+.thumbnail img, .thumbnail video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.thumbnail .liveAndViewers {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    left: 8px;
+}
+
+.thumbnail .liveAndViewers .viewersBadge, 
+.thumbnail .liveAndViewers .favorite-btn {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    background: rgba(17,17,17,0.8);
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+.favorite-btn {
+    transition: 0.3s;
+    margin-right: 2px;
+}
+
+.favorite-btn:hover {
+    color: #0faf27;
+    
+}
+
+.card-icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.thumbnail .icon {
+    position: absolute;
+    top: 12px;
+    background: rgba(17,17,17,0.8);
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+.thumbnail .interactive, .thumbnail .costream {
+    right: 8px;
+    font-size: 0.9em;
+}
+
+.thumbnail .costream {
+    top: auto;
+    bottom: 8px;
+}
+
+.thumbnail .audience {
+    position: absolute;
+    top: auto;
+    bottom: 8px;
+    left: 8px;
+    background: #169D56;
+    font-size: 10px;
+    padding: 2px 4px;
+    opacity: 0.9;
+}
+.thumbnail .audience span {
+    text-transform: capitalize;
+}
+.thumbnail .audience.eighteen {
+    background: #F75252;
+ }
+
+.footer {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    flex-grow: 1;
+}
+
+
+.channel-avatar {
+    width: 52px;
+    height: 52px;
+    display: block;
+    position: relative;
+}
+
+.channel-avatar > img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+.footer .titles{
+    margin-left: 8px;
+    flex-grow: 1;
+    width: 0;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.footer h2 {
+    font-size: 0.9em;
+    font-weight: 500;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Segoe UI",sans-serif;
+    margin-bottom: 0.1em;
+}
+
+.truncated-text {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 1.25em;
+}
+
+.truncated-text .wrapper {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    line-height: 1.25em;
+}
+
+.footer small {
+    display: block;
+    font-size: 0.8em;
+    opacity: 0.6;
+    line-height: 1.1em;
+    margin-top: 0.15em;
+    overflow: hidden;
+    width: 100%;
+}

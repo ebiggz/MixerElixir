@@ -1,0 +1,73 @@
+.me-deleted-action {
+    position: relative;
+    color: red;
+    font-size: 13px;
+    margin-left: 4px;
+    opacity: 0.95;
+}
+
+.me-mod-action-wrapper {
+    cursor: default;
+    color: red;
+    font-size: 16px;
+    opacity: 0.8;
+    padding: 5px 0;
+    b {
+        font-weight: bold;
+    }
+}
+
+.me-mod-action-bubble {
+    padding: 10px;
+    background: #29374A;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.me-icon {
+    font-size: inherit;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    width: 1em;
+    height: 1em;
+    font-size: 1em;
+    display: inline-block;
+    overflow: hidden;
+    flex-shrink: 0; 
+    font-family: MixerIcons;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: right;
+    transform: translateY(1px);
+    font-weight: bold;
+    margin-right: 5px;
+    &::before {
+        display: block;
+    }
+}
+
+.me-banned-icon {
+    &::before {
+        content: "\F526";
+    }
+}
+
+.me-timeout-icon {
+    &::before {
+        content: "\F527";
+    }
+}

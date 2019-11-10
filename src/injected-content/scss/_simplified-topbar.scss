@@ -1,0 +1,110 @@
+.me-simplified-topbar {
+    margin-right: 0 !important;
+}
+
+ .me-simplified-topbar > b-language-selector > button > span {
+    display: none;
+}
+
+ .me-simplified-topbar > b-language-selector > button > bui-icon:not(.icon-web) {
+    display: none;
+}
+
+
+ .me-simplified-topbar .icon-InternetWithController {
+    line-height: 1.2;
+}
+
+ b-notifications.me-simplified-topbar {
+    margin: 0 3px 0 5px !important;
+}
+
+ .me-simplified-topbar .flyout-menu {
+    background: #364558;
+    border-radius: 20px;
+    margin-right: 0 !important;
+}
+
+ b-embers-button.me-simplified-topbar > div > div {
+    margin-left: 0 !important;
+    border: none !important;
+    padding: none !important;
+}
+
+ b-embers-button.me-simplified-topbar > div > div:hover {
+    margin-left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    opacity: 0.7;
+}
+
+ b-embers-button.me-simplified-topbar > div > div > div {
+    display: none;
+}
+
+ .logo.me-simplified-topbar {
+    margin: 0 0 0px 20px !important;
+    min-width: 0 !important;
+}
+
+ .logo.me-simplified-topbar > .full {
+    display: none !important;
+}
+
+ .logo.me-simplified-topbar > .merge {
+    display: block !important;
+}
+
+
+/* Dropdown */
+.me-dropbtn {
+  background-color: transparent;
+  color: #9fa4ae;
+  height: 60px;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.me-dropbtn:hover,
+.me-dropdown:hover > .me-dropbtn {
+  background-color: #43526d;
+  color: white;
+}
+
+.me-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.me-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #43526d;
+  min-width: 160px;
+  overflow: auto;
+  z-index: 1;
+}
+
+.me-dropdown-content a {
+  color: #9fa4ae;
+  padding: 12px 16px;
+  height: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: 'Industrywf', sans-serif !important;
+}
+
+.me-dropdown a:hover {
+  color: white;
+}
+.me-dropdown-show {
+  display: block;
+}
+
+/* end dropdown */
+
+
+

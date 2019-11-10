@@ -1,0 +1,189 @@
+body.elixr-dark {
+    &:not(.app-text-dir-ltr) {
+        background: #1d2227 !important;
+    }
+
+    .is-stuck header {
+        background: #0f1215 !important;
+    }
+
+    .control.input > input {
+        background: #1d2021 !important;
+    }
+
+    b-homepage .background-full {
+        background-image: none !important;
+    }
+
+    b-nav-host div[class^="navContainer"][class*="collapsed"] div[class^="content"] {
+        background: #2E333A !important;
+    }
+
+    b-channel-web-page {
+        background-image: linear-gradient(to top, rgba(8, 8, 9, 0.8), rgba(25, 25, 25, 0.95)) !important;
+    }
+
+    .game-card, .card > a, b-media-card-footer {
+        background: #2d3136 !important;
+    }
+
+    .info-bar .viewers {
+        background: #22262C !important;
+    }
+
+    .profile-header, .profile-blocks {
+        background: #212429 !important;
+    }
+
+    div[class*="container"][class*="modal"] {
+        background: #212224 !important;
+        h1 {
+            background: #1e1f20;
+        }
+    }
+
+    b-channel-info-bar:not(.theaterMode) > .info-bar {
+        background: #2E333A !important;
+    }
+
+    [class*="chatContainer_"], .chat.layout-column {
+        background: #262A30 !important; 
+    }
+
+    [class*="chatContainer_"] {
+        [class^="webComposerBlock"] {
+            background: #262A30 !important;
+        }
+
+        [class*="sticker_"], 
+        [class*="attributionContents_"], 
+        [class*="stickerMessage_"], 
+        [class*="bubbleWrapper_"],
+        .me-mod-action-bubble {
+            background: #30343a !important;
+        }
+    }
+
+    .menu-area {
+        background: #1b1e22 !important;
+    }
+
+    .initial-loading-overlay {
+        background: #262A30;
+        transition: opacity 300ms linear, background 300ms linear;
+    }
+
+    b-upsell-creative-host > div > div[class^="multiPromoWrapper"],
+    b-upsell-creative-host > div > div[class^="wrapper"] {
+        background: #262A30 !important;
+    }
+
+    b-channel-chat-tabs {
+        background: #22262B !important;
+    }
+
+    .me-autocomplete {
+        background: #181b1f;
+    }
+
+    .me-emote-tabs {
+        background: rgb(36, 38, 39);
+        .me-emote-tab.me-tab-selected {
+            background: #171819;
+        }
+    }
+
+    .me-searchbar:not(.me-nav-collapsed) > input {
+        border-color: #313131 !important;
+    }
+
+    [class*="listModal_"] {
+        background: #202429 !important;
+    }
+
+    [class*="moreMenuWrap_"] {
+        background: #16191ff2 !important;
+    }
+
+    .skills-tray-container {
+        background: #24282d !important;
+    }
+    
+    [class*="dialog_"] {
+        background-color: #12151a !important;
+
+        [class*="tile_"] {
+            background-color: #2b2e36 !important;
+        }
+
+        [class*="shadowTop_"] {
+            background: linear-gradient(0deg, rgba(33, 44, 61, 0) 0%, #090c11 100%) !important;
+        }
+
+        [class*="shadowBottom_"] {
+            background: linear-gradient(180deg, rgba(33, 44, 61, 0) 0%, #0d1117 100%) !important;
+        }
+    }
+
+    .dialog {
+        background-color: #12151a !important;
+        border: 2px solid #1A1D21 !important;
+    }
+
+    bui-dialog-actions {
+        border-top: 2px solid #1A1D21 !important;
+        background: #12151A !important;
+    }
+
+    bui-dialog-header {
+        border-bottom: 2px solid #1A1D21 !important;
+    }
+
+    b-browse-loader::before {
+        background: linear-gradient(#0f121500, #0f1215 70%) !important;
+    }
+
+    b-ghost-browse-card > div.content {
+        background: #292c30 !important;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.82), 0px 2px 2px 0px rgba(11, 9, 9, 0.55), 0px 3px 1px -2px rgba(0, 0, 0, 0.82) !important;
+    }
+
+    .dropdown.notifications {
+        background: #12151A !important;
+    }
+
+    b-user-triggered-notification:hover, 
+    b-went-live-notification:hover, 
+    b-sub-anniversary-notification:hover {
+        background: #191d24 !important;
+    }
+
+    .notification-link:hover {
+        background: none !important;
+    }
+
+    [class*="locales_"] {
+        background: #0e1115 !important;
+    }
+
+    b-mobile-details-bar .info-bar-wrapper {
+        background: #21242b !important;
+    }
+
+    b-mobile-header > .header {
+        background: #21242b !important;
+    }
+
+    [class^='mobileWebComposerBlock_'] [class^='composerWrapper_'] {
+        background: #14181f !important;
+    }
+
+    b-more-menu-mobile > .more-menu {
+        background: #1d1f23 !important;
+    }
+
+    // keep dashboard area blue for now
+    b-app .view-area {
+        background: #1d243a;
+    }     
+}

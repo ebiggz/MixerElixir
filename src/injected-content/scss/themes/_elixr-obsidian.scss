@@ -1,0 +1,211 @@
+$headerColor: #212121;
+$headerSecondary: #191919;
+$darkestBg: #111111;
+
+body.elixr-obsidian {
+    &:not(.app-text-dir-ltr) {
+        background: $darkestBg !important;
+    }
+
+    .is-stuck header {
+        background: $darkestBg !important;
+    }
+
+    .control.input > input {
+        background: $darkestBg !important;
+    }
+
+    b-homepage .background-full {
+        background-image: none !important;
+    }
+
+    b-app .view-area {
+        background: $darkestBg;
+    }
+
+    b-nav-host div[class^="navContainer"][class*="collapsed"] div[class^="content"] {
+        background: $headerColor !important;
+    }
+
+    b-channel-web-page {
+        background-image: linear-gradient(to top, rgba(12, 12, 12, 0.8), rgba(14, 14, 14, 0.95)) !important;
+    }
+
+    .game-card, .card > a, b-media-card-footer {
+        background: $headerColor !important;
+    }
+
+    .info-bar .viewers {
+        background: $headerSecondary !important;
+    }
+
+    .profile-header, .profile-blocks {
+        background: $headerSecondary !important;
+    }
+
+    div[class*="container"][class*="modal"] {
+        background: $headerSecondary !important;
+        h1 {
+            background: $headerColor;
+            border-top: 1px solid hsla(0,0%,100%,.1);
+        }
+    }
+
+    b-channel-info-bar:not(.theaterMode) > .info-bar {
+        background: $headerColor !important;
+    }
+
+    [class*="chatContainer_"], .chat.layout-column {
+        background: $headerSecondary !important; 
+    }
+
+    [class*="chatContainer_"] {
+        [class^="webComposerBlock"] {
+            background: $headerSecondary !important;
+        }
+
+        [class*="sticker_"], 
+        [class*="attributionContents_"], 
+        [class*="stickerMessage_"], 
+        [class*="bubbleWrapper_"],
+        .me-mod-action-bubble {
+            background: $headerColor !important;
+        }
+    }
+
+    .menu-area {
+        background: $headerSecondary !important;
+    }
+
+    .toggle-interactive.open {
+        background-color: $headerSecondary;
+    }
+
+    .initial-loading-overlay {
+        background: $darkestBg;
+        transition: opacity 300ms linear, background 300ms linear;
+    }
+
+    b-upsell-creative-host > div > div[class^="multiPromoWrapper"],
+    b-upsell-creative-host > div > div[class^="wrapper"] {
+        background: $headerColor !important;
+    }
+
+    b-channel-chat-tabs {
+        background: $headerSecondary !important;
+    }
+
+    .me-autocomplete {
+        background: $headerColor;
+    }
+
+    .me-emote-tabs {
+        background: #232324;
+        border-bottom: 1px solid hsla(0,0%,100%,.1);
+        .me-emote-tab.me-tab-selected {
+            background: #151515;
+        }
+    }
+
+    .me-searchbar:not(.me-nav-collapsed) > input {
+        border-color: #313131 !important;
+    }
+
+    [class*="listModal_"] {
+        background: $headerColor !important;
+    }
+
+    [class*="moreMenuWrap_"] {
+        background: #16191ff2 !important;
+    }
+
+    .skills-tray-container {
+        background: $headerSecondary !important;
+    }
+    
+    [class*="dialog_"] {
+        background-color: $headerSecondary !important;
+
+        [class*="tile_"] {
+            background-color: $headerColor !important;
+        }
+
+        [class*="shadowTop_"] {
+            background: linear-gradient(0deg, rgba(33, 44, 61, 0) 0%, #1b1b1bd3 100%) !important;
+        }
+
+        [class*="shadowBottom_"] {
+            background: linear-gradient(180deg, rgba(33, 44, 61, 0) 0%, #1b1b1bd3 100%) !important;
+        }
+    }
+
+    .dialog {
+        background-color: $headerSecondary !important;
+        border: 2px solid $headerColor !important;
+        .footer {
+            background: $headerSecondary !important;
+        }
+        .player {
+            background: $darkestBg !important;
+        }
+    }
+
+    bui-dialog-actions {
+        border-top: 2px solid $headerColor !important;
+        background: $headerSecondary !important;
+    }
+
+    bui-dialog-header {
+        background: $headerSecondary !important;
+        border-bottom: 2px solid $headerColor !important;
+    }
+
+    b-browse-loader::before {
+        background: linear-gradient(#0f121500, #0f1215 70%) !important;
+    }
+
+    b-ghost-browse-card > div.content {
+        background: #292c30 !important;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.82), 0px 2px 2px 0px rgba(11, 9, 9, 0.55), 0px 3px 1px -2px rgba(0, 0, 0, 0.82) !important;
+    }
+
+    .dropdown.notifications {
+        background: $headerSecondary !important;
+    }
+
+    b-user-triggered-notification:hover, 
+    b-went-live-notification:hover, 
+    b-sub-anniversary-notification:hover {
+        background: $headerSecondary !important;
+    }
+
+    .notification-link:hover {
+        background: none !important;
+    }
+
+    [class*="locales_"] {
+        background: $headerSecondary !important;
+    }
+
+    b-mobile-details-bar .info-bar-wrapper {
+        background: $headerColor !important;
+    }
+
+    b-mobile-header > .header {
+        background: $headerColor !important;
+    }
+
+    [class^='mobileWebComposerBlock_'] [class^='composerWrapper_'] {
+        background: $headerSecondary !important;
+    }
+
+    b-more-menu-mobile > .more-menu {
+        background: $headerSecondary !important;
+    }
+
+    // keep dashboard area blue for now
+    b-app .view-area {
+        background: #1d243a;
+    }
+        
+}
