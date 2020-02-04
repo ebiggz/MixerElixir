@@ -932,7 +932,7 @@ $(() => {
                 theaterBtn.find('i').text('event_seat');
 
                 // change tooltip text
-                theaterBtn.find('span').text('MixrElixr: Theater Mode (Alt + T)');
+                theaterBtn.find('span').text('MixrElixr: Theater Mode (Shift + T)');
 
                 // add click handler
                 theaterBtn.on('click', function() {
@@ -2222,9 +2222,9 @@ $(() => {
         }
     });
 
-    // Alt + T theater toggle keycombo listener
+    // Shift + T theater toggle keycombo listener
     $(document).keydown(function(t) {
-        if (t.code === 'KeyT' && t.altKey) {
+        if (t.code === 'KeyT' && t.shiftKey) {
             toggleTheaterMode();
         }
     });
