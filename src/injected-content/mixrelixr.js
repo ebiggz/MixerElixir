@@ -2223,7 +2223,7 @@ $(() => {
     });
 
     // Ctrl + Alt + T theater toggle listener
-    $(document).keydown(function(evt) {
+    $(document).keyup(evt => {
         if (evt.ctrlKey && evt.altKey && evt.code === 'KeyT') {
             toggleTheaterMode();
         }
