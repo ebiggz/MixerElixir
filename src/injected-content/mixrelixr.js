@@ -883,7 +883,7 @@ $(() => {
                 theaterBtn.find('i').text('event_seat');
 
                 // change tooltip text
-                theaterBtn.find('span').text('MixrElixr: Theater Mode');
+                theaterBtn.find('span').text('MixrElixr: Theater Mode [Ctrl + Alt + T]');
 
                 // add click handler
                 theaterBtn.on('click', function() {
@@ -1009,7 +1009,7 @@ $(() => {
                         heading: 'Theater Mode Enabled',
                         showHideTransition: 'fade',
                         allowToastClose: true,
-                        hideAfter: 3000,
+                        hideAfter: 3250,
                         stack: false,
                         position: 'top-center',
                         bgColor: '#151C29',
@@ -2201,6 +2201,13 @@ $(() => {
             if (theaterModeEnabled()) {
                 toggleTheaterMode();
             }
+        }
+    });
+
+    // Ctrl + Alt + T theater toggle listener
+    $(document).keyup(evt => {
+        if (evt.ctrlKey && evt.altKey && evt.code === 'KeyT') {
+            toggleTheaterMode();
         }
     });
 
